@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :admin do
-    email    { Faker::Internet.email }
-    password { Faker::Internet.password }
-    day_id { Faker::Number.day_id }
-    user_id { Faker::Number.user_id }
+    email    { "email@email.com" }
+    password { "password123" }
+    user_id { 1 }
+    days_id   { 1 }
+
   end
 end
