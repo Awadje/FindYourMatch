@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418153500) do
+ActiveRecord::Schema.define(version: 20170418165941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 20170418153500) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "days_id"
+    t.integer  "user_id"
     t.index ["days_id"], name: "index_admins_on_days_id", using: :btree
     t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+    t.index ["user_id"], name: "index_admins_on_user_id", using: :btree
   end
 
   create_table "days", force: :cascade do |t|
@@ -58,13 +60,17 @@ ActiveRecord::Schema.define(version: 20170418153500) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "days_id"
+    t.integer  "admin_id"
+    t.index ["admin_id"], name: "index_users_on_admin_id", using: :btree
     t.index ["days_id"], name: "index_users_on_days_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "admins", "days", column: "days_id"
+  add_foreign_key "admins", "users"
   add_foreign_key "days", "admins"
   add_foreign_key "days", "users"
+  add_foreign_key "users", "admins"
   add_foreign_key "users", "days", column: "days_id"
 end
