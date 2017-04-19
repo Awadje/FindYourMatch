@@ -3,9 +3,11 @@ class PagesController < ApplicationController
   end
 
   def student
+    @days = Day.all
   end
 
   def admin
+    @users = User.all
   end
 
   def user

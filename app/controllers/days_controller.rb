@@ -1,5 +1,6 @@
 class DaysController < ApplicationController
   def index
+    @days = Day.all
   end
 
   def show
@@ -13,8 +14,5 @@ class DaysController < ApplicationController
 
   def create
   end
-
-
-
 
 end
