@@ -1,30 +1,17 @@
 Rails.application.routes.draw do
+  resources :days
   root to: 'pages#home'
 
 
   devise_for :users
-  get "day", to:  "pages#day"
+  resources :users
+  resources :days, only: [:show]
 
   devise_for :admins
-  get "admin", to:  "pages#admin"
+    resources :admins
+    resources :days
+    resources :users
+  
 
 
-  authenticate :user do
-    scope "/user" do
-      resources :days
-    end
-  end
-
-  authenticate :admin do
-    scope "/admin" do
-      resources :days
-    end
-  end
-
-  authenticate :admin do
-    scope "/admin" do
-      resources :users
-      end
-    end
-
-  end
+end
