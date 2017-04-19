@@ -2,8 +2,19 @@
   <div class="panel-heading">
     <h2>Student Overview</h2>
 
-    <% @users.each do |user| %>
-    <p><%= user.email %></p>
+    <p><%= matching = User.pluck(:email) %></p>
+    <p><%= matching.first %></p>
+    <p><%= matching.last %></p>
+
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Matches per day</h2>
+    <% @days.each do |day| %>
+    <p><%= day.day %></p>
+    <p><%= day.match %></p>
 
     <% end %>
   </div>
