@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418165941) do
+ActiveRecord::Schema.define(version: 20170419111251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 20170418165941) do
     t.index ["user_id"], name: "index_days_on_user_id", using: :btree
   end
 
+  create_table "matchers", force: :cascade do |t|
+    t.integer  "user_a"
+    t.integer  "user_b"
+    t.integer  "days_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["days_id"], name: "index_matchers_on_days_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -61,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170418165941) do
     t.datetime "updated_at",                          null: false
     t.integer  "days_id"
     t.integer  "admin_id"
+    t.boolean  "admin"
     t.index ["admin_id"], name: "index_users_on_admin_id", using: :btree
     t.index ["days_id"], name: "index_users_on_days_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
