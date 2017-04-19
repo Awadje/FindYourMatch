@@ -1,8 +1,21 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
+    <h2>Admin Overview</h2>
+
+    <% @admins.each do |admin| %>
+    <p><%= admin.email %></p>
+
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
     <h2>Student Overview</h2>
 
     <% @users.each do |user| %>
     <p><%= user.email %></p>
 
     <% end %>
+  </div>
+</div>
