@@ -3,8 +3,7 @@
     <h2>Student Overview</h2>
 
     <p><%= matching = User.pluck(:email) %></p>
-    <p><%= matching.first %></p>
-    <p><%= matching.last %></p>
+    <p><%= [matching.first, matching.last] %></p>
 
   </div>
 </div>

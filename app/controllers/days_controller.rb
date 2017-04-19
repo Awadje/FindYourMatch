@@ -3,7 +3,15 @@ class DaysController < ApplicationController
     @days = Day.all
   end
 
+  def create
+    @day = Day.new(day_params)
+  if @day.save
+     render 'new'
+   end
+  end
+
   def show
+     @day = Day.find(params[:id])
   end
 
   def new
@@ -12,7 +20,10 @@ class DaysController < ApplicationController
   def edit
   end
 
-  def create
-  end
+private
+  def day_params
+        params.require(:day).permit(:day, :user_id, :match)
+      end
 
-end
+
+  end

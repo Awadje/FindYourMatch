@@ -1,0 +1,10 @@
+<%= form_for Day.new do |f| %>
+<%= matching = User.pluck(:email) %>
+<div class="form-group">
+  <label>Event Day</label>
+  <%= f.date_select :day %>
+</div>
+
+<%= f.hidden_field :match, :value => [matching.first, matching.last] %>
+<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
