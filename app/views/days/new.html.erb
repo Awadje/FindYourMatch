@@ -5,6 +5,6 @@
   <%= f.date_select :day %>
 </div>
 
-<%= f.hidden_field :match, :value => [matching.first, matching.last] %>
+<%= f.hidden_field :match, :value => [matching.shift, matching.pop] %>
 <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>
