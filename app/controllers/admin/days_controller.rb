@@ -8,7 +8,7 @@ class Admin::DaysController < ApplicationController
   def create
     @day = Day.new(day_params)
   if @day.save
-     render 'new'
+  
      #matcher
    end
   end
