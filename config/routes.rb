@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: 'days#index'
-  resources :days, only: [:index, :show]
+  resources :days, only: [:index, :show, :create]
 
 
 
