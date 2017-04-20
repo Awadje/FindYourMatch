@@ -1,14 +1,14 @@
 <%= form_for Day.new do |f| %>
 <h1>
-  Students Array
+  Students:
 </h1>
-<p><%= matching = User.pluck(:email).shuffle %></p>
+<p><%= matching = User.where(admin: false).pluck(:email).shuffle %></p>
 
 <div class="form-group">
   <label>Event Day</label>
   <%= f.date_select :day %>
 
-  <%= f.hidden_field :match, :value => [matching.first, matching.last] %>
+  <%= f.hidden_field :match, :value => [matching.pop, matching.pop] %>
   <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 

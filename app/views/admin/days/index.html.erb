@@ -1,11 +1,17 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Matches per day</h2>
+    <h1>Pairs per day</h1>
     <% @days.each do |day| %>
-    <p><%= link_to day.day, admin_day_path(day.id), class: "btn btn-primary"%></p>
-    <p><%= day.match %></p>
 
-  </div>
-  <%= link_to "New Day", new_admin_day_path, class: "btn btn-primary" %>
-</div>
-<% end %>
+    <h2><%= day.day %></h2>
+    <h4><%= day.match %>
+      <h4>
+
+        <% end %>
+      </div>
+
+      <div class="panel-heading">
+        <h2><%= link_to "Generate Pairs", new_admin_day_path, class: "btn btn-primary" %></h2>
+        <h2><%= link_to "User overview", admin_users_path, class: "btn btn-primary" %></h2>
+
+      </div>
