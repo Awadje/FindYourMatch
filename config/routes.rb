@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
-  root to: 'pages#student'
-  get "admin", to: "pages#admin"
+
+  root to: 'days#index'
+  resources :days, only: [:index, :show]
 
 
 
-  devise_for :users
+   namespace :admin do
+   root to: 'days#index'
+    resources :days, only: [:index, :create]
+    resources :users, only: [:index, :update]
 
-  scope '/admin'  do
-    resources :admins
-    resources :days
-    resources :users
-
-end
+  end
+    devise_for :users
 
 end
