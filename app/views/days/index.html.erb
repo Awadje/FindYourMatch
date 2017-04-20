@@ -1,7 +1,10 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Your Match for today</h2>
+    <h2>Pairs</h2>
     <% @days.each do |day| %>
-    <p><%= link_to day.day, day_path(day.id), class: "btn btn-primary"%></p>
-    <p><%= day.match %></p>
-    <% end %>
+
+    <h2><%= day.day %></h2>
+    <h4><%= day.match %>
+      <h4>
+
+        <% end %>
