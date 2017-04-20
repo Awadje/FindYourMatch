@@ -1,4 +1,6 @@
 class Admin::DaysController < ApplicationController
+before_filter :authorized?
+
   def index
     @days = Day.all
   end
@@ -31,6 +33,11 @@ private
       #   [@matching.shift, @matching.pop]
       # end
 
-
+      def authorized?
+          unless current_user.is_admin
+            flash[:error] = "You are not authorized to view page"
+            redirect_to root_path
+          end
+        end
 
   end
