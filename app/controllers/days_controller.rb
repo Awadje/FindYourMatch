@@ -23,3 +23,7 @@ class DaysController < ApplicationController
       end
 
   end
+  # def matcher
+  #    @matching = User.pluck(:email).shuffle
+  #   [@matching.shift, @matching.pop]
+  # end
