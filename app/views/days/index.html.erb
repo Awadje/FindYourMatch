@@ -6,6 +6,7 @@
     <h4><% if day.day = Date.today %>
       <%= day.day %></h4>
 
-    <p><%= day.match[0, day.match.index(" ")]%></p>
+    <p><%= day.match.partition(' ').first%></p>
+    <p><%= day.match.partition(' ').last%></p>
     <% end %>
     <% end %>
