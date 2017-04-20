@@ -1,0 +1,14 @@
+<%= form_for Day.new do |f| %>
+<h1>
+  Students Array
+</h1>
+<p><%= matching = User.pluck(:email).shuffle %></p>
+
+<div class="form-group">
+  <label>Event Day</label>
+  <%= f.date_select :day %>
+</div>
+
+<%= f.hidden_field :match, :value => [matching.shift, matching.pop] %>
+<%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
