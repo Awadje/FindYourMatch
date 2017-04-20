@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
    namespace :admin do
    root to: 'days#index'
-    resources :days, only: [:index, :create]
-    resources :users, only: [:index, :update]
+    resources :days
+    resources :users
 
   end
     devise_for :users

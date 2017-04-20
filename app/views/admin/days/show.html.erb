@@ -8,6 +8,8 @@
   <p>Matches:
     <%=@day.match %></p>
 
+  <%= link_to "All Days", days_path, class: "btn btn-primary" %>
+  <%= link_to "Edit Day", edit_day_path(@day.id), class: "btn btn-primary"%>
 </div>
 </div>
 </div>

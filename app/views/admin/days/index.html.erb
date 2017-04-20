@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Matches per day</h2>
+    <% @days.each do |day| %>
+    <p><%= link_to day.day, admin_day_path(day.id), class: "btn btn-primary"%></p>
+    <p><%= day.match %></p>
+
+  </div>
+  <%= link_to "New Day", new_admin_day_path, class: "btn btn-primary" %>
+</div>
+<% end %>
