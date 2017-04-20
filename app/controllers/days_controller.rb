@@ -13,14 +13,14 @@ class DaysController < ApplicationController
   def create
     @day = Day.new(day_params)
   if @day.save
-    
+
      #matcher
    end
   end
 
 
   def day_params
-        params.require(:day).permit(:day, :user_id, :match)
+        params.require(:day).permit(:day, :user_id, :match, :matching)
       end
 
   end
