@@ -5,6 +5,10 @@ def index
     @users = User.all
 end
 
+def edit
+    @users = User.all
+end
+
 def authorized?
   unless current_user.admin
     flash[:error] = "You are not an admin."
