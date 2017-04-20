@@ -1,4 +1,4 @@
-class DaysController < ApplicationController
+class Admin::DaysController < ApplicationController
   def index
     @days = Day.all
   end
