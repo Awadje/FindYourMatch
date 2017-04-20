@@ -7,8 +7,9 @@
 <div class="form-group">
   <label>Event Day</label>
   <%= f.date_select :day %>
-</div>
 
-<%= f.hidden_field :match, :value => [matching.shift, matching.pop] %>
-<%= f.submit "Save", class: "btn btn-primary" %>
-<% end %>
+  <%= f.hidden_field :match, :value => [matching.shift, matching.pop] %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
