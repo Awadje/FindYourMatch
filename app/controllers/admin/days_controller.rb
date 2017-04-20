@@ -1,5 +1,10 @@
 class Admin::DaysController < ApplicationController
  before_filter :authorized?
+ include ActiveModel::Serialization::JSON
+
+attr_accessor :match
+
+
 
   def index
     @days = Day.all
@@ -31,6 +36,7 @@ def authorized?
     redirect_to root_path
   end
 end
+
 
   def day_params
         params.require(:day).permit(:day, :user_id, :match)

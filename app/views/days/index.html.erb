@@ -2,6 +2,9 @@
   <div class="panel-heading">
     <h2>Your Match for today</h2>
     <% @days.each do |day| %>
-    <p><%= link_to day.day, day_path(day.id), class: "btn btn-primary"%></p>
-    <p><%= day.match %></p>
+
+    <!-- <h4><% if day.day = Date.today%><%= day.day %></h4>
+    <% end %> -->
+
+    <p><% puts day.as_json %></p>
     <% end %>
