@@ -39,11 +39,8 @@ end
       end
 
       # def matcher
-      #    @matching = User.pluck(:email).shuffle
-      #   [@matching.shift, @matching.pop]
+      #    @matching = User.where(admin: false).pluck(:email).shuffle
+      #   [@matching.pop(2)]
       # end
-
-
-
 
   end
