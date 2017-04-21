@@ -18,11 +18,11 @@ class DaysController < ApplicationController
 end
 
   def create
-    @day = Day.new(day_params)
-  if @day.save
-     redirect_to admin_root_path
-     #matcher
-   end
+  #   @day = Day.new(day_params)
+  # if @day.save
+  #    redirect_to admin_root_path
+  #    #matcher
+  #  end
   end
 
 
