@@ -2,13 +2,12 @@
 <h1>
   Students:
 </h1>
-<p><%= matching = User.where(admin: false).pluck(:email).shuffle %></p>
+<p><%= @logic %></p>
 
 <div class="form-group">
   <label>Event Day</label>
   <%= f.date_select :day %>
-
-  <%= f.hidden_field :match, :value => [matching.pop(2)] %>
+  <%= f.hidden_field :match, :value => @logic %>
   <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 

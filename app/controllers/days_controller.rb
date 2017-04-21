@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
   before_action :authenticate_user!
 
+
   def index
     @days = Day.all
 
@@ -19,11 +20,14 @@ end
 
   def create
     @day = Day.new(day_params)
-  if @day.save
-     redirect_to admin_root_path
-     #matcher
-   end
+
+
+       if @day.save
+         redirect_to admin_root_path
+
   end
+     @logic = User.where(admin: false).pluck(:email).shuffle
+end
 
 
   def show
@@ -35,10 +39,3 @@ end
       end
 
   end
-
-
-
-  # def matcher
-  #    @matching = User.pluck(:email).shuffle
-  #   [@matching.shift, @matching.pop]
-  # end

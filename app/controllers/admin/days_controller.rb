@@ -8,11 +8,15 @@ class Admin::DaysController < ApplicationController
 
   def create
     @day = Day.new(day_params)
-  if @day.save
-     redirect_to admin_root_path
-     #matcher
-   end
+
+        @logic = User.where(admin: false).pluck(:email).shuffle
+        @logicresult = @logic.pop(2)
+
+      if @day.save
+         redirect_to admin
   end
+end
+
 
   def show
      @day = Day.find(params[:id])
@@ -37,10 +41,5 @@ end
   def day_params
         params.require(:day).permit(:day, :user_id, :match)
       end
-
-      # def matcher
-      #    @matching = User.where(admin: false).pluck(:email).shuffle
-      #   [@matching.pop(2)]
-      # end
 
   end
