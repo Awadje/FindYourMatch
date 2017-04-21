@@ -3,7 +3,13 @@ class DaysController < ApplicationController
 
   def index
     @days = Day.all
+
+    studentmatches = days.select do |day|
+      day.match.partition(' ').first == current_user.id.to_s || day.match.partition(' ').last == current_user.id.to_s
   end
+
+  @studentmatches = studentmatches.select do |match|
+    day.day == Date.today
 
   def create
     @day = Day.new(day_params)
@@ -23,6 +29,9 @@ class DaysController < ApplicationController
       end
 
   end
+
+
+
   # def matcher
   #    @matching = User.pluck(:email).shuffle
   #   [@matching.shift, @matching.pop]
