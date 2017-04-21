@@ -1,6 +1,10 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h1>Pairs</h1>
+    <h1>Welcome:
+      <%= current_user.email %></h1>
+    <h2>
+      Today's Match
+    </h2>
     <% @studentdays.each do |day| %>
 
     <h2><%= day.day %></h2>
