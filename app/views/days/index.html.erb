@@ -1,13 +1,26 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>Pairs</h2>
+    <h1>Pairs</h1>
     <% @studentdays.each do |day| %>
 
-    <h2><%= day.day %>
-      |
-      <%= day.match.partition(' ').first %>
-      &
-      <%= day.match.partition(' ').last %></h2>
+    <h2><%= day.day %></h2>
+
+    <p><%= day.match.partition(' ').first %></p>
+    &
+    <p><%= day.match.partition(' ').last %></p>
 
     <% end %>
+
+    <h2>Historical Matches</h2>
+
+    <% @studenthistory.each do |day| %>
+
+    <h2><%= day.day %></h2>
+
+    <p><%= day.match.partition(' ').first %></p>
+    &
+    <p><%= day.match.partition(' ').last %></p>
+
+    <% end %>
+
   </div>

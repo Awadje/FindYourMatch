@@ -11,6 +11,10 @@ class DaysController < ApplicationController
   @studentdays = studentdays.select do |day|
     day.day == Date.today
   end
+
+  @studenthistory = studentdays.select do |day|
+    day.day < Date.today
+  end
 end
 
   def create
