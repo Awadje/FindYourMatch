@@ -1,9 +1,5 @@
 class Admin::DaysController < ApplicationController
  before_filter :authorized?
- include ActiveModel::Serialization::JSON
-
-attr_accessor :match
-
 
 
   def index

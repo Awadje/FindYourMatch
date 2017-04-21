@@ -1,10 +1,13 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h2>Pairs</h2>
-    <% @days.each do |day| %>
+    <% @studentdays.each do |day| %>
 
-    <h2><%= day.day %></h2>
-    <h4><%= day.match %>
-      <h4>
+    <h2><%= day.day %>
+      |
+      <%= day.match.partition(' ').first %>
+      &
+      <%= day.match.partition(' ').last %></h2>
 
-        <% end %>
+    <% end %>
+  </div>

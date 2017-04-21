@@ -4,11 +4,11 @@ class DaysController < ApplicationController
   def index
     @days = Day.all
 
-    studentmatches = days.select do |day|
-      day.match.partition(' ').first == current_user.id.to_s || day.match.partition(' ').last == current_user.id.to_s
+    studentdays = @days.select do |day|
+      day.match.partition(' ').first == current_user.email || day.match.partition(' ').last == current_user.email
   end
 
-  @studentmatches = studentmatches.select do |match|
+  @studentdays = studentdays.select do |day|
     day.day == Date.today
   end
 end
