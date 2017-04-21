@@ -20,7 +20,7 @@ end
   def create
     @day = Day.new(day_params)
   if @day.save
-     render 'new'
+     redirect_to admin_root_path
      #matcher
    end
   end
