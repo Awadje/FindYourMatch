@@ -10,6 +10,8 @@ class DaysController < ApplicationController
 
   @studentmatches = studentmatches.select do |match|
     day.day == Date.today
+  end
+end
 
   def create
     @day = Day.new(day_params)
