@@ -2,7 +2,7 @@
   <div class="panel-heading">
     <h1>Welcome:
       <%= current_user.email %></h1>
-    <h2> Today's Match </h2>
+    <h2> All Your Matches Up & Until Today </h2>
     <% @studentdays.each do |day| %>
 
     <h2><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h2>
