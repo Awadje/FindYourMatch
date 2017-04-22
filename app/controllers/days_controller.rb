@@ -2,43 +2,18 @@ class DaysController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @days = Day.all
+    days_index = Day.all
 
-    studentdays = @days.select do |day|
-      day.match.partition(' ').first == current_user.email || day.match.partition(' ').last == current_user.email
+    studentdays = days_index.select do |day|
+      day.id_first_student == current_user.id.to_s || day.id_second_student == current_user.id.to_s
   end
 
-  @studentdays = studentdays.select do |day|
+  @studentdays = days_index.select do |day|
     day.day == Date.today
   end
 
-  @studenthistory = studentdays.select do |day|
+  @studenthistory = days_index.select do |day|
     day.day < Date.today
   end
 end
-
-  def create
-    @day = Day.new(day_params)
-  if @day.save
-     redirect_to admin_root_path
-     #matcher
-   end
-  end
-
-
-  def show
-     @day = Day.find(params[:id])
-  end
-
-  def day_params
-            params.require(:day).permit(:day, :user_id, :match, :student_a, :student_b)
-      end
-
-  end
-
-
-
-  # def matcher
-  #    @matching = User.pluck(:email).shuffle
-  #   [@matching.shift, @matching.pop]
-  # end
+end
