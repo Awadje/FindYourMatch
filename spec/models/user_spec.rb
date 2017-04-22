@@ -6,12 +6,12 @@ RSpec.describe User, type: :model do
   let(:student3) { create :user }
   let(:admin) { create :user, admin: true }
 
-  describe "promote or demote" do
-    it "upgrades a user to admin" do
+  describe "User is not an admin" do
+    it "Admin is false" do
       student1
       expect(student1.admin?).to eq(false)
     end
-    it "demotes a admin to user" do
+    it "Admin is true" do
       admin
       expect(admin.admin?).to eq(true)
     end
