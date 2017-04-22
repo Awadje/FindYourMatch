@@ -3,21 +3,23 @@ class Day < ApplicationRecord
   belongs_to :student_a, :class_name => 'User', :foreign_key => 'id_first_student'
   belongs_to :student_b, :class_name => 'User', :foreign_key => 'id_second_student'
 
-  def self.matcherToday(today)
-    today = day.to_date
-    matches = makeMatches()
+  def self.matcherToday(todays)
+    todays = todays.to_date
+    day = matcher()
 
-    matches.each do |student|
-    new_day = Day.create(student_a: student[0]), student_b: student[1], day: today)
+    days.each do |student|
+    new_day = Day.create(student_a: student[0], student_b: student[1], day: days)
   end
+end
 
 
-  def self.Matcher()
+  def self.matcher()
     matches = []
-    selected_students []
+    selected_students = []
 
     students = User.all.select { |u| u.admin == false }
-    students.push(User.find{ |u| u.no_match == true}) if students.length.odd?
+    <debugger>
+    students.push(User.find{ |u| u.no_match == true}) if students.length.odd
     matches_per_day = students.length / 2
 
     matches_per_day.times do

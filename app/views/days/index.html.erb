@@ -2,24 +2,12 @@
   <div class="panel-heading">
     <h1>Welcome:
       <%= current_user.email %></h1>
-    <h2>
-      Today's Match
-    </h2>
+    <h2> Today's Match </h2>
     <% @studentdays.each do |day| %>
 
-    <h2><%= day.day %></h2>
+    <h2><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h2>
 
-    <p><%= day.student_a.email %></p> & <p><%= day.student_b.email %></p>
 
-    <% end %>
-
-    <h2>Historical Matches</h2>
-
-    <% @studenthistory.each do |day| %>
-
-    <h2><%= day.day %></h2>
-
-    <p><%= day.student_a.email %></p> & <p><%= day.student_b.email %></p>
     <% end %>
 
   </div>
