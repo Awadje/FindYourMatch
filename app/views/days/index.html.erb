@@ -9,9 +9,7 @@
 
     <h2><%= day.day %></h2>
 
-    <p><%= day.match.partition(' ').first %></p>
-    &
-    <p><%= day.match.partition(' ').last %></p>
+    <p><%= day.student_a.email %></p> & <p><%= day.student_b.email %></p>
 
     <% end %>
 
@@ -21,10 +19,7 @@
 
     <h2><%= day.day %></h2>
 
-    <p><%= day.match.partition(' ').first %></p>
-    &
-    <p><%= day.match.partition(' ').last %></p>
-
+    <p><%= day.student_a.email %></p> & <p><%= day.student_b.email %></p>
     <% end %>
 
   </div>
