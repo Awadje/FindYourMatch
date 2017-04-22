@@ -35,7 +35,7 @@ end
 
 
   def day_params
-        params.require(:day).permit(:day, :user_id, :match)
+        params.require(:day).permit(:day, :user_id, :match, :match_a, :match_b)
       end
 
       # def matcher
