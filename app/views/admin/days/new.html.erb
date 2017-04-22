@@ -8,8 +8,8 @@
   <label>Event Day</label>
   <%= f.date_select :day %>
 
-  <%= f.hidden_field :first_matches, :value => [matching.first] %>
-    <%= f.hidden_field :second_matches_match, :value => [matching.second] %>
+  <%= f.hidden_field :student_a, :value => [matching.first] %>
+    <%= f.hidden_field :student_b, :value => [matching.second] %>
   <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 
