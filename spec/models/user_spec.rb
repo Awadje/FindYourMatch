@@ -8,11 +8,12 @@ RSpec.describe User, type: :model do
 
   describe "promote or demote" do
     it "upgrades a user to admin" do
-      student1.upgrade
-      expect(student1.admin?).to eq(true)
+      student1
+      expect(student1.admin?).to eq(false)
     end
     it "demotes a admin to user" do
-      admin.demote
-      expect(admin.admin?).to eq(false)
+      admin
+      expect(admin.admin?).to eq(true)
     end
+  end
 end
