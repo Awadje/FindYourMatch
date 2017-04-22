@@ -10,7 +10,7 @@ class Admin::DaysController < ApplicationController
     @day = Day.new(day_params)
   if @day.save
      redirect_to admin_root_path
-     #matcher
+     Day.matcher
    end
   end
 

@@ -1,7 +1,7 @@
 class Day < ApplicationRecord
   has_and_belongs_to_many :users
-  belongs_to :student_a, :class_name => "User"
-  belongs_to :student_b, :class_name => "User"
+  belongs_to :student_a, :class_name => 'User', :foreign_key => 'id_first_student'
+  belongs_to :student_b, :class_name => 'User', :foreign_key => 'id_second_student'
 
   def self.matcherToday(today)
     today = day.to_date
