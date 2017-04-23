@@ -10,7 +10,11 @@ class DaysController < ApplicationController
   end
 
   @studentdays = days_index.select do |day|
-    day.day <= Date.today
+    day.day == Date.today
+  end
+
+  @studenthistory  = days_index.select do |day|
+    day.day < Date.today
   end
 
 end
