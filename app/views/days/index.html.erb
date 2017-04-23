@@ -1,19 +1,19 @@
 
     <h1>Welcome:
       <%= current_user.email %></h1>
-    <h2> Your match for today </h2>
+    <h3> Your Match For Today: </h3>
     <% @studentdays.each do |day| %>
 
-    <h3><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h3>
+    <h4><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h4>
 
 
     <% end %>
 
 
-    <h2> Historical Matches </h2>
+    <h3> Historical Matches </h3>
     <% @studenthistory.each do |day| %>
 
-    <h3><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h3>
+    <h4><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h4>
 
 
     <% end %>
