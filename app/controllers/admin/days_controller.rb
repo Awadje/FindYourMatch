@@ -3,26 +3,14 @@ class Admin::DaysController < ApplicationController
 
 
   def index
-    @days = Day.all
+    days_index = Day.all
+    @days = days_index.group_by(&:day)
   end
 
   def create
-    @day = Day.new(day_params)
-  if @day.save
-     redirect_to admin_root_path
-     #matcher
+    Day.matcherToday(params[:day])
+    redirect_to admin_days_path, notice: "Matches created"
    end
-  end
-
-  def show
-     @day = Day.find(params[:id])
-  end
-
-  def new
-  end
-
-  def edit
-  end
 
 private
 
@@ -33,14 +21,5 @@ def authorized?
   end
 end
 
-
-  def day_params
-        params.require(:day).permit(:day, :user_id, :match)
-      end
-
-      # def matcher
-      #    @matching = User.where(admin: false).pluck(:email).shuffle
-      #   [@matching.pop(2)]
-      # end
 
   end

@@ -1,8 +1,10 @@
 FactoryGirl.define do
   factory :user do
-    email    { "email@email.com" }
-    password { "password123" }
-    days_id   { 1 }
+    id       { Faker::Number }
+    email    { Faker::Internet.email }
+    password { Faker::Internet.password }
+    admin    { false }
+    no_match { false }
 
 
   end

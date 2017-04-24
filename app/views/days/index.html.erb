@@ -1,30 +1,19 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
+
     <h1>Welcome:
       <%= current_user.email %></h1>
-    <h2>
-      Today's Match
-    </h2>
+    <h3> Your Match For Today: </h3>
     <% @studentdays.each do |day| %>
 
-    <h2><%= day.day %></h2>
+    <h4><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h4>
 
-    <p><%= day.match.partition(' ').first %></p>
-    &
-    <p><%= day.match.partition(' ').last %></p>
 
     <% end %>
 
-    <h2>Historical Matches</h2>
 
+    <h3> Historical Matches </h3>
     <% @studenthistory.each do |day| %>
 
-    <h2><%= day.day %></h2>
+    <h4><%= day.day %> | <%= day.id_first_student.email %>  & <%= day.id_second_student.email %></h4>
 
-    <p><%= day.match.partition(' ').first %></p>
-    &
-    <p><%= day.match.partition(' ').last %></p>
 
     <% end %>
-
-  </div>

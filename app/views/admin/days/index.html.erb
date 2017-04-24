@@ -1,17 +1,13 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h1>Pairs per day</h1>
-    <% @days.each do |day| %>
 
-    <h2><%= day.day %></h2>
-    <h4><%= day.match %>
-      <h4>
+    <h1>Pairs</h1>
+  <% (Date.today.beginning_of_week .. Date.today.end_of_week).each do |todays| %>
 
+    <h4><%= todays.strftime('%d/%m/%Y') %></h4>
+     <% @days[todays].to_a.each do |day| %>
+     <%= todays %> | <%= day.id_first_student.email %> & <%= day.id_second_student.email %> <br>
         <% end %>
-      </div>
 
-      <div class="panel-heading">
-        <h2><%= link_to "Generate Pairs", new_admin_day_path, class: "btn btn-primary" %></h2>
-        <h2><%= link_to "User overview", admin_users_path, class: "btn btn-primary" %></h2>
+    <%= link_to "Generate Pairs", admin_days_path(day: todays), class: "btn btn-primary", method: :create %>
 
-      </div>
+
+       <% end %>

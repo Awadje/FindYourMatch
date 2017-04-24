@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :day do
+    id     { Faker::Number }
     day    { Date.new }
-    user_id { 1 }
+  
 end
 end
