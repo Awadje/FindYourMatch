@@ -9,6 +9,9 @@ class Day < ApplicationRecord
 
     matches.each do |student|
     new_day = Day.create(id_first_student: student[0], id_second_student: student[1], day: day)
+
+  
+
   end
 end
 
@@ -31,6 +34,8 @@ end
       selected_students << students.delete_at(random_student_b)
 
       matches << [first_selection, second_selection]
+
+
 
     end
     return matches
